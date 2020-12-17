@@ -3274,6 +3274,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2822925631505042655, guid: 48fd85ddf3409844aa4ac2abd2d602e1, type: 3}
+      propertyPath: gameEnd
+      value: 
+      objectReference: {fileID: 1770582758}
     - target: {fileID: 2822925631947974167, guid: 48fd85ddf3409844aa4ac2abd2d602e1, type: 3}
       propertyPath: m_IsActive
       value: 0
