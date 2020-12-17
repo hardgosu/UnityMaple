@@ -113,8 +113,12 @@ public class PlayerController : MonoBehaviour, @PlayerControl.IWarriorActions
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            GetComponent<Status>().SubCurrentHP(collision.gameObject.GetComponent<Status>().aTK);
-            StartCoroutine(DamagedSpriteColorAnimation());
+            if (collision.gameObject.GetComponent<Status>().currentHP > 0)
+            {
+
+                GetComponent<Status>().SubCurrentHP(collision.gameObject.GetComponent<Status>().aTK);
+                StartCoroutine(DamagedSpriteColorAnimation());
+            }
         }
     }
 
