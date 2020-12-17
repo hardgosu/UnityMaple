@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameEnd : MonoBehaviour
 {
+    private void Start()
+    {
+        Invoke("Quit", 3.0f);
+    }
     public void Quit()
     {
 #if UNITY_EDITOR

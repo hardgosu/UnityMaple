@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
+
 
 namespace KPU.Manager
 {
@@ -42,8 +44,9 @@ namespace KPU.Manager
 
             if (position != default) founded.transform.position = position;
             if (rot != default) founded.transform.rotation = rot;
-
+           
             return founded;
         }
+
     }
 }

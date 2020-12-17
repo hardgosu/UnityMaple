@@ -12,6 +12,7 @@ public class Status : MonoBehaviour
 
     public int eXPToGive = 100;
     public int eXPGained = 0;
+    public int aTK = 10;
 
     public event EventHandler mySubscribers;
 
@@ -47,6 +48,18 @@ public class Status : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentHP <= 0)
+        {
+            mySubscribers(this, null);
+
+        }
+
+        if(eXPGained >= 500)
+        {
+            eXPGained = Mathf.Clamp(eXPGained, 0, eXPGained - 500);
+            aTK += 5;
+            currentHP += 30;
+            maxHP += 30;
+        }
     }
 }

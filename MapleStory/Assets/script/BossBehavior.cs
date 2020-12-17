@@ -18,6 +18,15 @@ public class BossBehavior : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+
+    private void YouAreDead(object sender, System.EventArgs e)
+    {
+        //throw new System.NotImplementedException();
+        animator.SetBool("Move", false);
+        animator.SetBool("Die", true);
+        StartCoroutine(Die());
+    }
+
     private void Flip()
     {
         Vector3 _scale = transform.localScale;
@@ -28,11 +37,19 @@ public class BossBehavior : MonoBehaviour
     }
     void Start()
     {
+        GetComponent<Status>().mySubscribers += YouAreDead;
         beHaviour = Random.Range(0,3);
         timeSpan = 0.0f;
         checkTime = 2.0f;
     }
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(0.833f);
+        GameObject.Find("GameEnd").SetActive(true);
+        gameObject.SetActive(false);
 
+
+    }
    
     void Update()
     {
